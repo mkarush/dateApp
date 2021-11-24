@@ -3,7 +3,6 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -19,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun clickDatePicker(view: View) {
+    private fun clickDatePicker(view: View) {
 
         val myCalendar = Calendar.getInstance()
         val year = myCalendar.get(Calendar.YEAR)
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         DatePickerDialog(
             this,
-            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+            { _, year, month, dayOfMonth ->
 
                 val selectedDate = "$dayOfMonth/${month+1}/$year"
 
